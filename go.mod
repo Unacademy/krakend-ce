@@ -5,6 +5,7 @@ go 1.12
 require (
 	github.com/Azure/go-autorest/autorest v0.11.12 // indirect
 	github.com/PuerkitoBio/goquery v1.4.0 // indirect
+	github.com/Unacademy/krakend-gin-logger v1.0.0
 	github.com/andybalholm/cascadia v1.0.0 // indirect
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
 	github.com/clbanning/mxj v1.8.4 // indirect
@@ -13,7 +14,7 @@ require (
 	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
 	github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc // indirect
-	github.com/devopsfaith/krakend v1.2.1-0.20210212160439-f312fca7be1e
+	github.com/devopsfaith/krakend v1.3.0
 	github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20200729112051-82f1b8f8fdfe
 	github.com/devopsfaith/krakend-cel v0.0.0-20210127195753-2e4f1c7580e4
@@ -81,4 +82,4 @@ require (
 	k8s.io/api v0.20.2 // indirect
 )
 
-replace github.com/devopsfaith/krakend v1.2.1-0.20210212160439-f312fca7be1e => github.com/Unacademy/krakend v1.3.0
+replace github.com/devopsfaith/krakend v1.3.0 => github.com/Unacademy/krakend v1.3.1
