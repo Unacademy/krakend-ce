@@ -2,6 +2,7 @@ package krakend
 
 import (
 	"io"
+	"net/http"
 
 	gin_logger "github.com/Unacademy/krakend-gin-logger"
 
@@ -22,6 +23,8 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 	engine := gin.New()
 	engine.Use(gin_logger.NewLogger(cfg.ExtraConfig, logger, gin.LoggerConfig{Output: w}), gin.Recovery())
 
+	engine.NoRoute(forwardRequestToAnotherEndpoints)
+
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true
 	engine.HandleMethodNotAllowed = true
@@ -41,4 +44,34 @@ type engineFactory struct{}
 
 func (e engineFactory) NewEngine(cfg config.ServiceConfig, l logging.Logger, w io.Writer) *gin.Engine {
 	return NewEngine(cfg, l, w)
+}
+
+func forwardRequestToAnotherEndpoints(c *gin.Context) {
+	client := &http.Client{}
+
+	req, err := http.NewRequest(c.Request.Method, c.Request.URL.String(), c.Request.Body)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create request"})
+		return
+	}
+
+	req.Header = c.Request.Header
+
+	req.URL.Scheme = "https"
+	req.URL.Host = "http-echo-server.gamma.unacademydev.com"
+
+	resp, err := client.Do(req)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to forward request"})
+		return
+	}
+
+	for key, values := range resp.Header {
+		for _, value := range values {
+			c.Writer.Header().Add(key, value)
+		}
+	}
+
+	c.Status(resp.StatusCode)
+	io.Copy(c.Writer, resp.Body)
 }
