@@ -3,8 +3,10 @@ package krakend
 import (
 	"io"
 	"net/http"
+	"sync"
 
 	gin_logger "github.com/Unacademy/krakend-gin-logger"
+	"github.com/spf13/viper"
 
 	botdetector "github.com/devopsfaith/krakend-botdetector/gin"
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
@@ -12,7 +14,11 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/luraproject/lura/config"
 	"github.com/luraproject/lura/logging"
-	"github.com/spf13/viper"
+)
+
+var (
+	httpClient *http.Client
+	clientOnce sync.Once
 )
 
 // NewEngine creates a new gin engine with some default values and a secure middleware
@@ -47,9 +53,23 @@ func (e engineFactory) NewEngine(cfg config.ServiceConfig, l logging.Logger, w i
 	return NewEngine(cfg, l, w)
 }
 
-func handleNoMatch(c *gin.Context) {
-	client := &http.Client{}
+func getClient() *http.Client {
+	clientOnce.Do(func() {
+		transport := &http.Transport{
+			MaxIdleConns:        100, // default 100
+			MaxIdleConnsPerHost: 100, // default 2
+		}
 
+		httpClient = &http.Client{
+			Transport: transport,
+		}
+	})
+
+	return httpClient
+}
+
+func handleNoMatch(c *gin.Context) {
+	client := getClient()
 	req, err := http.NewRequest(c.Request.Method, c.Request.URL.String(), c.Request.Body)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create request"})
