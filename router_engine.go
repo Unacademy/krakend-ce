@@ -3,10 +3,10 @@ package krakend
 import (
 	"io"
 	"net/http"
+	"os"
 	"sync"
 
 	gin_logger "github.com/Unacademy/krakend-gin-logger"
-	"github.com/spf13/viper"
 
 	botdetector "github.com/devopsfaith/krakend-botdetector/gin"
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
@@ -78,8 +78,11 @@ func handleNoMatch(c *gin.Context) {
 
 	req.Header = c.Request.Header
 
-	req.URL.Scheme = viper.GetString("DEFAULT_URL_SCHEME") // should be either http or https for current use case
-	req.URL.Host = viper.GetString("DEFAULT_URL_HOST")
+	// req.URL.Scheme = viper.GetString("DEFAULT_URL_SCHEME") // should be either http or https for current use case
+	// req.URL.Host = viper.GetString("DEFAULT_URL_HOST")
+
+	req.URL.Scheme = os.Getenv("DEFAULT_URL_SCHEME") // should be either http or https for current use case
+	req.URL.Host = os.Getenv("DEFAULT_URL_HOST")
 
 	resp, err := client.Do(req)
 	if err != nil {
