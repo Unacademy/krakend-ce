@@ -12,6 +12,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/luraproject/lura/config"
 	"github.com/luraproject/lura/logging"
+	"github.com/spf13/viper"
 )
 
 // NewEngine creates a new gin engine with some default values and a secure middleware
@@ -23,7 +24,7 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 	engine := gin.New()
 	engine.Use(gin_logger.NewLogger(cfg.ExtraConfig, logger, gin.LoggerConfig{Output: w}), gin.Recovery())
 
-	engine.NoRoute(forwardRequestToAnotherEndpoints)
+	engine.NoRoute(handleNoMatch)
 
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true
@@ -46,7 +47,7 @@ func (e engineFactory) NewEngine(cfg config.ServiceConfig, l logging.Logger, w i
 	return NewEngine(cfg, l, w)
 }
 
-func forwardRequestToAnotherEndpoints(c *gin.Context) {
+func handleNoMatch(c *gin.Context) {
 	client := &http.Client{}
 
 	req, err := http.NewRequest(c.Request.Method, c.Request.URL.String(), c.Request.Body)
@@ -57,8 +58,8 @@ func forwardRequestToAnotherEndpoints(c *gin.Context) {
 
 	req.Header = c.Request.Header
 
-	req.URL.Scheme = "https"
-	req.URL.Host = "http-echo-server.gamma.unacademydev.com"
+	req.URL.Scheme = viper.GetString("DEFAULT_URL_SCHEME") // should be either http or https for current use case
+	req.URL.Host = viper.GetString("DEFAULT_URL_HOST")
 
 	resp, err := client.Do(req)
 	if err != nil {
