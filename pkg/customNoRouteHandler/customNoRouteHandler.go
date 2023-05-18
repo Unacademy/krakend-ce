@@ -45,6 +45,9 @@ func (h *NoRouteHandler) GetClient() *http.Client {
 func (h *NoRouteHandler) ForwardRequestToDefaultURL(c *gin.Context) {
 	client := h.GetClient()
 	req, err := http.NewRequest(c.Request.Method, c.Request.URL.String(), c.Request.Body)
+	h.logger.Debug("Original Request Header : ", c.Request.Header)
+	h.logger.Debug("Original Request URL : ", c.Request.URL.String())
+	h.logger.Debug("Original Request Body : ", c.Request.Body)
 	if err != nil {
 		h.logger.Error("Failed to create request:", err.Error())
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create request"})
@@ -54,6 +57,10 @@ func (h *NoRouteHandler) ForwardRequestToDefaultURL(c *gin.Context) {
 	req.Header = c.Request.Header
 	req.URL.Scheme = h.defaultScheme
 	req.URL.Host = h.defaultURL
+
+	h.logger.Debug("New Request Header : ", req.Header)
+	h.logger.Debug("New Request URL : ", req.URL.String())
+	h.logger.Debug("New Request Body : ", req.Body)
 
 	resp, err := client.Do(req)
 	if err != nil {
@@ -67,6 +74,9 @@ func (h *NoRouteHandler) ForwardRequestToDefaultURL(c *gin.Context) {
 			c.Writer.Header().Add(key, value)
 		}
 	}
+
+	h.logger.Debug("Original Response Headers : ", resp.Header)
+	h.logger.Debug("Response headers to be returned : ", c.Writer.Header())
 
 	c.Status(resp.StatusCode)
 	_, copyErr := io.Copy(c.Writer, resp.Body)
