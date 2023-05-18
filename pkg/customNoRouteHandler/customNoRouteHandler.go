@@ -1,4 +1,4 @@
-package customnoroutehandler
+package customNoRouteHandler
 
 import (
 	"io"

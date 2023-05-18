@@ -39,7 +39,6 @@ require (
 	github.com/influxdata/influxdb v1.7.4 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20181102202715-663e2683a27c // indirect
 	github.com/luraproject/lura v1.4.1
-	github.com/spf13/viper v1.7.1 // indirect
 	github.com/unacademy/krakend-auth v1.1.0-dev.4.1.0.20230112081451-ad91ea477394
 	gocloud.dev/pubsub/kafkapubsub v0.21.0 // indirect
 	gocloud.dev/pubsub/natspubsub v0.21.0 // indirect
