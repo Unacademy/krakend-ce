@@ -1,3 +1,4 @@
+
 bazil.org/fuse v0.0.0-20160811212531-371fbbdaa898/go.mod h1:Xbm+BRKSBEpa4q4hTSxohYNQpsxXPbPry4JJWOB3LB8=
 bazil.org/fuse v0.0.0-20180421153158-65cc252bf669/go.mod h1:Xbm+BRKSBEpa4q4hTSxohYNQpsxXPbPry4JJWOB3LB8=
 cloud.google.com/go v0.23.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
@@ -1498,6 +1499,28 @@ github.com/ulikunitz/xz v0.5.6/go.mod h1:2bypXElzHzzJZwzH67Y6wb67pO62Rzfn7BSiF4A
 github.com/ulikunitz/xz v0.5.7/go.mod h1:nbz6k7qbPmH4IRqmfOplQw/tblSgqTqBwxkY0oWt/14=
 github.com/unacademy/krakend-auth v1.1.0-dev.4.1.0.20230112081451-ad91ea477394 h1:9c3XiML13xj/zog16J4sQNu33xoBYaZiLJ7He6c1FpM=
 github.com/unacademy/krakend-auth v1.1.0-dev.4.1.0.20230112081451-ad91ea477394/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.1 h1:oc9G0DQJDAZzfgtny/KqEW8GtzT5hW5NuyfTg1isphs=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.1/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.2 h1:IgvluW6HrCtY4Lz8Xe8YsEyUhMU1egFYL/Yhyjituzw=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.2/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.3 h1:IVoo7DuwaPpNnoWrk+ROj+tE5RY0LJA8jmK9B8QghPA=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.3/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.3.0.20230525075724-206778d1db65 h1:mO7+u1iAkTES3whZd3++DYGdFwDeNMXoehcykfEY4NI=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.3.0.20230525075724-206778d1db65/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.4 h1:Vw01wy9lrjjUynqCni9u0rIPzdYEv1TFaIeTTNPO7wo=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.4/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.4.0.20230525092112-def45c93b106 h1:QcMlBApCruU4kbt0slVsIaKn6xwTW8rHvKMTbGR2oRs=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.4.0.20230525092112-def45c93b106/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.5 h1:xZHjoX/Fvr4WEQIP1dzfCXk3TVPXzmm/tzr1fC7Qdr0=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.5/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.6 h1:v2hwPfk5roicdYF3v56rX6vuJsrHDifHUw/IJTF/Dis=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.6/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.7 h1:lIGapLS6RXEe6ENzi6wPfsZwfLCY6VxjBCThyFYx1PI=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.7/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.8 h1:CkpdjhZse/iNeegy5ZOM5tX/4J/aWGJWovot5KzTmkA=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.8/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.9 h1:6to4fBxZL/0x1ctGkP73v0obPQxa0vi9aIHRip+cGWw=
+github.com/unacademy/krakend-auth v1.1.0-dev.5.9/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
 github.com/unrolled/secure v0.0.0-20180918153822-f340ee86eb8b h1:BcYLITOE/4y1IAcNb0XsnDMskrWaBNLj/ckrG8sufOc=
 github.com/unrolled/secure v0.0.0-20180918153822-f340ee86eb8b/go.mod h1:mnPT77IAdsi/kV7+Es7y+pXALeV3h7G6dQF6mNYjcLA=
 github.com/urfave/cli v0.0.0-20171014202726-7bc6a0acffa5/go.mod h1:70zkFmudgCuE/ngEzBv17Jvp/497gISqfk5gWijbERA=
