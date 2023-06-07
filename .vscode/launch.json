@@ -1,0 +1,18 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Package",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/cmd/krakend-ce",
+            "buildFlags": "-mod vendor -ldflags='-X github.com/devopsfaith/krakend/core.KrakendVersion=1.4.2 -X github.com/devopsfaith/krakend/core.KrakendHeaderName=X-Gateway -X github.com/devopsfaith/krakend/transport/http/server.CompleteResponseHeaderName=X-Gateway-Completed'",
+            "args": ["run", "-c", "${workspaceFolder}/examples/simple_config.json"],
+            "env": {}
+        }
+    ]
+}
