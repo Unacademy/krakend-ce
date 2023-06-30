@@ -2,10 +2,12 @@ package krakend
 
 import (
 	"io"
+	"os"
 
 	gin_logger "github.com/Unacademy/krakend-gin-logger"
 
 	botdetector "github.com/devopsfaith/krakend-botdetector/gin"
+	"github.com/devopsfaith/krakend-ce/pkg/customNoRouteHandler"
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
 	lua "github.com/devopsfaith/krakend-lua/router/gin"
 	"github.com/gin-gonic/gin"
@@ -21,6 +23,9 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 
 	engine := gin.New()
 	engine.Use(gin_logger.NewLogger(cfg.ExtraConfig, logger, gin.LoggerConfig{Output: w}), gin.Recovery())
+
+	hanldeNoMatch := customNoRouteHandler.NewNoRouteHandler(os.Getenv("DEFAULT_URL_HOST"), os.Getenv("DEFAULT_URL_SCHEME"), logger)
+	engine.NoRoute(hanldeNoMatch.ForwardRequestToDefaultURL)
 
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true
