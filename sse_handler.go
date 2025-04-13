@@ -38,7 +38,6 @@ func NewSSEHandlerFactory(logger logging.Logger, metrics *metrics.Metrics) *SSEH
 }
 
 // NewHandler creates a new SSE handler
-// NewHandler creates a new SSE handler
 func (s *SSEHandlerFactory) NewHandler(cfg *config.EndpointConfig, prxy proxy.Proxy) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// Set SSE headers
