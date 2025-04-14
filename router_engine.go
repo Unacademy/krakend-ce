@@ -20,6 +20,7 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 	}
 
 	engine := gin.New()
+	engine.Use(CaptureBodyMiddleware())
 	engine.Use(gin_logger.NewLogger(cfg.ExtraConfig, logger, gin.LoggerConfig{Output: w}), gin.Recovery())
 
 	engine.RedirectTrailingSlash = true

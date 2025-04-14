@@ -2,6 +2,7 @@ package krakend
 
 import (
 	"bufio"
+	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -112,10 +113,17 @@ func (s *SSEHandlerFactory) NewHandler(cfg *config.EndpointConfig, prxy proxy.Pr
 		}
 
 		// Create request
+		rawBody, exists := c.Get("rawBody")
+		if !exists {
+			s.logger.Error("Request body not found in context")
+			c.AbortWithStatus(http.StatusInternalServerError)
+			return
+		}
+		bodyBytes := rawBody.([]byte)
 		req, err := http.NewRequestWithContext(c.Request.Context(),
 			backendConfig.Method,
 			backendURL,
-			c.Request.Body)
+			bytes.NewReader(bodyBytes))
 
 		if err != nil {
 			s.logger.Error("Error creating backend request:", err)
