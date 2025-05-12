@@ -1,0 +1,44 @@
+{
+    "version": 2,
+    "name": "KrakenD SSE Test",
+    "port": 8080,
+    "endpoints": [
+        {
+            "endpoint": "/v3/doubts/learner/ai/solution",
+            "method": "POST",
+            "output_encoding": "json",
+            "extra_config": {
+                "sse": {
+                    "keep_alive_interval": "5s",
+                    "retry_interval": 1000
+                }
+            },
+            "backend": [
+                {
+                "url_pattern": "/v3/doubts/learner/ai/solution",
+                "method": "POST",
+                "host": ["http://localhost:8081"]
+                }
+            ]
+        },
+        {
+            "endpoint": "/v2/doubts/learner/feedback",
+            "method": "GET",
+            "output_encoding": "json",
+            "input_headers": ["Authorization", "X-Request-Id", "X-Api-Gateway-Token"],
+            "headers_to_pass": [
+                "*"
+            ],
+            "querystring_params": [
+                "*"
+            ],
+            "backend": [
+                {
+                "url_pattern": "/v2/doubts/learner/feedback",
+                "method": "GET",
+                "host": ["http://localhost:8081"]
+                }
+            ]
+        }
+    ]
+}
