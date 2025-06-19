@@ -11,6 +11,7 @@ import (
 	"github.com/luraproject/lura/logging"
 	router "github.com/luraproject/lura/router/gin"
 	krakendauth "github.com/unacademy/krakend-auth"
+	sse "github.com/unacademy/krakend-sse"
 )
 
 // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected
@@ -22,6 +23,11 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)
 	handlerFactory = opencensus.New(handlerFactory)
 	handlerFactory = botdetector.New(handlerFactory, logger)
+
+	// Wrap with SSE middleware - this should be the outermost wrapper
+	// so it can intercept SSE endpoints before they go through the standard chain
+	handlerFactory = sse.New(handlerFactory, logger)
+
 	return handlerFactory
 }
 
