@@ -1500,12 +1500,6 @@ github.com/ulikunitz/xz v0.5.6/go.mod h1:2bypXElzHzzJZwzH67Y6wb67pO62Rzfn7BSiF4A
 github.com/ulikunitz/xz v0.5.7/go.mod h1:nbz6k7qbPmH4IRqmfOplQw/tblSgqTqBwxkY0oWt/14=
 github.com/unacademy/krakend-auth v1.1.0-dev.5.12 h1:Q+mKZyDwcMpTmibg1swkQu4MYoPOzo+3imp4Imk85uc=
 github.com/unacademy/krakend-auth v1.1.0-dev.5.12/go.mod h1:nCQDJ92TeWOrr6C8PVGWjYh4kfaIkAr6tW2b9FIMd7I=
-github.com/unacademy/krakend-sse v1.0.0 h1:1EA1sZGwcZ4whQlaVf/Fb5Cf5VevDG8vJiwwFlJwvYw=
-github.com/unacademy/krakend-sse v1.0.0/go.mod h1:raehjwsl78Xgrp4sVN2OsrxdwDdqRHJKjGh2KkKB4cA=
-github.com/unacademy/krakend-sse v1.0.1-0.20250807141052-9976a345f91c h1:bblLSENgUzcaDZh4QzrOn3T2CBoFaUQlVodX46ZIR0o=
-github.com/unacademy/krakend-sse v1.0.1-0.20250807141052-9976a345f91c/go.mod h1:raehjwsl78Xgrp4sVN2OsrxdwDdqRHJKjGh2KkKB4cA=
-github.com/unacademy/krakend-sse v1.0.1-0.20250807143244-2af912a39910 h1:MAe8MduYp5CQm88lZ4d3C7eZaq1ZdV2v4Z118x4yBZk=
-github.com/unacademy/krakend-sse v1.0.1-0.20250807143244-2af912a39910/go.mod h1:raehjwsl78Xgrp4sVN2OsrxdwDdqRHJKjGh2KkKB4cA=
 github.com/unacademy/krakend-sse v1.1.0 h1:mh1GRoIAUtLfNXyl7DRRaoDFNjjAHpbe8LvgG7fikNo=
 github.com/unacademy/krakend-sse v1.1.0/go.mod h1:raehjwsl78Xgrp4sVN2OsrxdwDdqRHJKjGh2KkKB4cA=
 github.com/unrolled/secure v0.0.0-20180918153822-f340ee86eb8b h1:BcYLITOE/4y1IAcNb0XsnDMskrWaBNLj/ckrG8sufOc=
