@@ -153,6 +153,11 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("bloomFilter:", err.Error())
 		}
 
+		// Inject service configuration into handler factory if it supports it
+		if hf, ok := e.HandlerFactory.(*handlerFactory); ok {
+			hf.serviceConfig = cfg
+		}
+
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
 			Engine: e.EngineFactory.NewEngine(cfg, logger, gelfWriter),
@@ -195,7 +200,7 @@ func (e *ExecutorBuilder) checkCollaborators() {
 		e.BackendFactory = new(backendFactory)
 	}
 	if e.HandlerFactory == nil {
-		e.HandlerFactory = new(handlerFactory)
+		e.HandlerFactory = &handlerFactory{}
 	}
 	if e.LoggerFactory == nil {
 		e.LoggerFactory = new(LoggerBuilder)

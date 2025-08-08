@@ -47,6 +47,12 @@ require (
 	gocloud.dev/secrets/hashivault v0.21.0 // indirect
 )
 
+require nhooyr.io/websocket v1.8.6 // indirect
+
+// require github.com/unacademy/krakend-websocket v1.0.0
+
+require github.com/unacademy/krakend-websocket v0.0.0-20250808103319-bbfc69963e44
+
 require (
 	cloud.google.com/go v0.72.0 // indirect
 	cloud.google.com/go/pubsub v1.9.0 // indirect
@@ -224,7 +230,6 @@ require (
 	gopkg.in/jcmturner/rpc.v1 v1.1.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.5.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	nhooyr.io/websocket v1.8.6 // indirect
 )
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
