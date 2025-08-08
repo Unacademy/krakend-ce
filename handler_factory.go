@@ -16,26 +16,6 @@ import (
 	websocket "github.com/unacademy/krakend-websocket"
 )
 
-// // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected
-// func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, rejecter jose.RejecterFactory) router.HandlerFactory {
-// 	handlerFactory := juju.HandlerFactory
-// 	handlerFactory = lua.HandlerFactory(logger, handlerFactory)
-// 	handlerFactory = krakendauth.HandlerFactory(handlerFactory, logger)
-// 	handlerFactory = ginjose.HandlerFactory(handlerFactory, logger, rejecter)
-// 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)
-// 	handlerFactory = opencensus.New(handlerFactory)
-// 	handlerFactory = botdetector.New(handlerFactory, logger)
-
-// 	// Wrap with SSE middleware
-// 	handlerFactory = sse.New(handlerFactory, logger)
-
-// 	// Wrap with WebSocket middleware - this should be the outermost wrapper
-// 	// so it can intercept WebSocket upgrade requests before any other middleware
-// 	handlerFactory = websocket.New(handlerFactory, logger)
-
-// 	return handlerFactory
-// }
-
 type handlerFactory struct {
 	serviceConfig config.ServiceConfig
 }
