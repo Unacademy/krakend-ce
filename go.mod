@@ -49,7 +49,7 @@ require (
 
 require nhooyr.io/websocket v1.8.6 // indirect
 
-require github.com/unacademy/krakend-websocket v1.0.0
+require github.com/unacademy/krakend-websocket v1.1.0
 
 require (
 	cloud.google.com/go v0.72.0 // indirect
