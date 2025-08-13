@@ -49,7 +49,7 @@ require (
 
 require nhooyr.io/websocket v1.8.6 // indirect
 
-require github.com/unacademy/krakend-websocket v1.1.1-0.20250813132019-2bd54b1f8ea3
+require github.com/unacademy/krakend-websocket v1.1.1-0.20250813140020-999e735a4619
 
 require (
 	cloud.google.com/go v0.72.0 // indirect
@@ -248,3 +248,5 @@ replace golang.org/x/text => golang.org/x/text v0.7.0
 replace google.golang.org/protobuf => google.golang.org/protobuf v1.28.1
 
 replace github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.7.7
+
+replace github.com/unacademy/krakend-websocket => /Users/harshnaicker/Documents/Unacademy/repos/krakend-websocket
