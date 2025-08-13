@@ -248,5 +248,3 @@ replace golang.org/x/text => golang.org/x/text v0.7.0
 replace google.golang.org/protobuf => google.golang.org/protobuf v1.28.1
 
 replace github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.7.7
-
-replace github.com/unacademy/krakend-websocket => /Users/harshnaicker/Documents/Unacademy/repos/krakend-websocket
