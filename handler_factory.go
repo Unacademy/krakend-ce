@@ -39,7 +39,8 @@ func NewHandlerFactoryWithConfig(logger logging.Logger, metricCollector *metrics
 
 	// Wrap with WebSocket middleware - this should be the outermost wrapper
 	// so it can intercept WebSocket upgrade requests before any other middleware
-	handlerFactory = websocket.New(handlerFactory, logger)
+	handlerFactory = websocket.NewWithConfig(handlerFactory, logger, serviceConfig)
 
 	return handlerFactory
 }
+
